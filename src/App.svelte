@@ -66,8 +66,12 @@
 	{#await fetching}
 		Chargement ...
 	{:then imgs}
-		<!-- svelte-ignore a11y-missing-attribute -->
-		<img src="{imgs[currentImg].url}" id="currentImg">
+		{#if undefined != imgs[currentImg]}
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<img src="{imgs[currentImg].url}" id="currentImg">
+		{:else}
+			<p>Pas d'images</p>
+		{/if}
 	{:catch error}
 		Erreur de chargement.
 	{/await}
