@@ -65,7 +65,7 @@
 	<h1>{getCurrentYear()}</h1>
 	<div>
 		{#await fetching}
-			Chargement ...
+			<p>Chargement ...</p>
 		{:then imgs}
 			{#if undefined != imgs[currentImg]}
 				<!-- svelte-ignore a11y-missing-attribute -->
@@ -74,7 +74,7 @@
 				<p>Pas d'images</p>
 			{/if}
 		{:catch error}
-			Erreur de chargement.
+			<p>Erreur de chargement.</p>
 		{/await}
 	</div>
 </main>
@@ -95,7 +95,7 @@ div{
 	height: 100vh;
 	position: relative;
 }
-img{
+img,p{
 	position: absolute;
 	max-width: 100%;
 	max-height: 100%;
@@ -104,5 +104,10 @@ img{
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+p{
+	height: fit-content;
+	width: fit-content;
+	font-size: 2rem;
 }
 </style>
