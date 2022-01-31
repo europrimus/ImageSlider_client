@@ -63,20 +63,36 @@
 
 <main>
 	<h1>{getCurrentYear()}</h1>
-	{#await fetching}
-		Chargement ...
-	{:then imgs}
-		{#if undefined != imgs[currentImg]}
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img src="{imgs[currentImg].url}" id="currentImg">
-		{:else}
-			<p>Pas d'images</p>
-		{/if}
-	{:catch error}
-		Erreur de chargement.
-	{/await}
+	<div>
+		{#await fetching}
+			Chargement ...
+		{:then imgs}
+			{#if undefined != imgs[currentImg]}
+				<!-- svelte-ignore a11y-missing-attribute -->
+				<img src="{imgs[currentImg].url}" id="currentImg">
+			{:else}
+				<p>Pas d'images</p>
+			{/if}
+		{:catch error}
+			Erreur de chargement.
+		{/await}
+	</div>
 </main>
 
 <style>
-
+div{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+img{
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
+	margin:auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
 </style>
