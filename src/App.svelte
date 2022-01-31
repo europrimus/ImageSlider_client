@@ -80,6 +80,16 @@
 </main>
 
 <style>
+h1{
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	margin: 1rem;
+	text-align: center;
+	font-size: 5rem;
+	color: #000;
+	text-shadow: #fff 0 0 1rem;
+}
 div{
 	width: 100vw;
 	height: 100vh;
