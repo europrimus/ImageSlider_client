@@ -13,7 +13,7 @@
 	let currentImg = 0;
 	let fetching = fetchImg();
 
-	async function sheduleSwitchImg(time=1500){
+	async function sheduleSwitchImg(time=2500){
 		setTimeout(()=>{
 			switchImg()
 		},time)
