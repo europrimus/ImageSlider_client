@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	export let img;
 
 	async function fetchImg(){
@@ -92,8 +93,12 @@
 			<p>Chargement ...</p>
 		{:then imgs}
 			{#if undefined != imgs[currentImg]}
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<img src="{imgs[currentImg].url}" id="currentImg">
+				{#key currentImg}
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<img src="{imgs[currentImg].url}" id="currentImg"
+						transition:fade="{{ duration: 1000 }}"
+					>
+				{/key}
 			{:else}
 				<p>Pas d'images</p>
 			{/if}
