@@ -28,9 +28,7 @@
 				loadNextYear();
 			}else{
 				console.log("next img");
-				let currentImgElement = document.getElementById('currentImg')
 				currentImg = ++currentImg % imgs.length;
-				currentImgElement.src = imgs[currentImg].url;
 				sheduleSwitchImg();
 			}
 		})
@@ -95,7 +93,7 @@
 			{#if undefined != imgs[currentImg]}
 				{#key currentImg}
 					<!-- svelte-ignore a11y-missing-attribute -->
-					<img src="{imgs[currentImg].url}" id="currentImg"
+					<img src="{imgs[currentImg].url}"
 						transition:fade="{{ duration: 1000 }}"
 					>
 				{/key}
