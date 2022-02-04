@@ -12,9 +12,10 @@
 
 	let currentImg = 0;
 	let fetching = fetchImg();
+	let switchImgTimeout;
 
 	async function sheduleSwitchImg(time=2500){
-		setTimeout(()=>{
+		switchImgTimeout = setTimeout(()=>{
 			switchImg()
 		},time)
 	}
@@ -56,8 +57,31 @@
 		}
 	}
 
-	onMount(
-		sheduleSwitchImg()
+	function keyHandler(event){
+		const char = (typeof event !== 'undefined') ? event.keyCode : event.which;
+		switch (char) {
+		  case 32:
+				PauseOrResume()
+		    break;
+			default:
+				console.log('char',char);
+		}
+	}
+
+	function PauseOrResume(){
+		console.log('Pause or Resume');
+		if(undefined == switchImgTimeout){
+			switchImg()
+		}else{
+			clearTimeout(switchImgTimeout)
+			switchImgTimeout = undefined;
+		}
+	}
+
+	onMount(async () => {
+			document.onkeypress = keyHandler
+			sheduleSwitchImg()
+		}
 	);
 </script>
 
