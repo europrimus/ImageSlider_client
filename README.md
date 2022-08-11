@@ -7,7 +7,7 @@ Install dépendencies
 npm install
 ```
 
-edit file ```src/main.js``` to fit ImageSlider_server configuration
+edit file ```src/main.js``` to fit [ImageSlider_server](https://github.com/europrimus/ImageSlider_server) configuration
 
 Compile slevte projet
 ```
