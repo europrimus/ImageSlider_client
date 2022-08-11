@@ -16,3 +16,5 @@ npm run build
 
 copie contant of ```public``` directory to your webserver
 
+## Licence
+Sources under the [CeCILL](http://www.cecill.info/index.fr.html) licence V2.1
